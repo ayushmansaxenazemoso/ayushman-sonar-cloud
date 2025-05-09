@@ -1,0 +1,48 @@
+.login-template {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0f0f0f;
+    color: white;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .left-panel {
+    flex: 1;
+    background-color: #2c2358;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .left-panel-content {
+    text-align: center;
+  }
+  
+  .left-panel-content h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  .left-panel-content p {
+    font-size: 16px;
+    color: #ddd;
+  }
+  
+  /* Optional image styling */
+  .left-panel-image {
+    max-width: 90%;
+    height: auto;
+  }
+  
+  .right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #0f0f0f;
+  }
+  

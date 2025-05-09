@@ -1,0 +1,19 @@
+/* TwoPanelTemplate.css */
+.two-panel-template {
+  display: flex;
+  height: 100vh;
+  background-color: #0f0f0f;
+  color: white;
+}
+
+.left-panel {
+  flex: 1;
+  background-color: #2c2358;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

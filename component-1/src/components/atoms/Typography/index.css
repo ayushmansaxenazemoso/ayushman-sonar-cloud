@@ -1,0 +1,26 @@
+.heading {
+    color: white;
+    margin: 0;
+  }
+  
+  .subtext {
+    color: gray;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .small{
+    font-size: small;
+      }
+      
+  .medium{
+
+    font-size: medium;
+
+  }
+
+  .large{
+    font-size: larger;
+
+  }
+
