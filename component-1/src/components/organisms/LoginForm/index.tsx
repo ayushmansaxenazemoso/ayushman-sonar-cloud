@@ -2,7 +2,7 @@
 import React from 'react';
 import InputField from '../../molecules/InputField';
 import Button from '../../atoms/Button/index';
-import Typography from '../../atoms/Typography';
+import PairTypography from '../../atoms/PairTypography';
 import SocialLogin from '../../molecules/SocialLoginButton';
 import './index.css';
 
@@ -25,7 +25,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 }) => {
   return (
     <form className="login-form" onSubmit={onSubmit}>
-      <Typography
+      <PairTypography
         heading="Login to Seeder"
         subtext="Enter your mail id and password to login"
       />
