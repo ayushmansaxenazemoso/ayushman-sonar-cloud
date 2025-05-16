@@ -1,18 +1,24 @@
 import React from 'react';
-import './index.css';
+import { Typography as Typ, TypographyProps as MuiTypographyProps } from '@mui/material';
 
-interface TypographyProps {
+interface CustomTypographyProps {
   heading: string;
-  subtext: string;
-  size?: 'small' | 'medium' | 'large'; 
+  size?: 'small' | 'medium' | 'large';
 }
 
-const Typography: React.FC<TypographyProps> = ({ heading, subtext, size = 'medium' }) => {
+const sizeToVariantMap: Record<'small' | 'medium' | 'large', MuiTypographyProps['variant']> = {
+  small: 'body2',
+  medium: 'body1',
+  large: 'h6',
+};
+
+const Typography: React.FC<CustomTypographyProps> = ({ heading, size = 'medium' }) => {
+  const variant = sizeToVariantMap[size];
+
   return (
-    <div className={`text-block ${size}`}>
-      <h2 className={`heading ${size}`}>{heading}</h2>
-      <p className={`subtext ${size}`}>{subtext}</p>
-    </div>
+    <Typ variant={variant} data-testid="typography">
+      {heading}
+    </Typ>
   );
 };
 
