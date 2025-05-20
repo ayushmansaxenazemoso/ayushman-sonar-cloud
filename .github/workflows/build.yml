@@ -3,7 +3,7 @@ name: SonarCloud
 on:
   push:
     branches:
-      - '**'
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -13,17 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # required for accurate analysis
+          fetch-depth: 0  # Required for SonarCloud to get full git history
 
-      - name: Setup Node
+      - name: Debug - Show current directory
+        run: pwd
+
+      - name: Debug - List all files
+        run: ls -la
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
 
       - name: Run tests with coverage
         run: npm run test -- --coverage
