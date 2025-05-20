@@ -1,19 +1,46 @@
-name: Build
+name: SonarCloud
+
 on:
   push:
     branches:
       - '**'
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   sonarqube:
-    name: SonarQube
-    runs-on: windows-latest
+    name: SonarCloud
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: ./component-1
+        run: npm install
+
+      - name: Run tests with coverage
+        working-directory: ./component-1
+        run: npm run test -- --coverage
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: ./component-1
+          args: >
+            -Dsonar.projectKey=ayushmansaxenazemoso_ayushman-sonar-cloud-
+            -Dsonar.organization=ayushmansaxenazemoso
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.sources=src
+            -Dsonar.tests=src
+            -Dsonar.test.inclusions=**/*.test.ts,**/*.test.tsx
+            -Dsonar.exclusions=**/node_modules/**,**/*.spec.ts
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

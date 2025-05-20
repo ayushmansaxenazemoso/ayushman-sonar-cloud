@@ -1,9 +1,6 @@
-
 import { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
-import { action } from '@storybook/addon-actions'; 
-
-import Typography from  './index';
+import React from 'react';
+import Typography from './index';
 
 const meta: Meta<typeof Typography> = {
   title: 'components/atoms/Typography',
@@ -14,29 +11,29 @@ export default meta;
 
 type Story = StoryObj<typeof Typography>;
 
-export const para: Story = {
+export const HeadingSmall: Story = {
   args: {
-    
-    heading:"Para ",
-    subtext:"paragaph",
-    size:"small"
+    heading: 'Small Title',
+    size: 'small',
   },
 };
 
-export const columnHeading: Story = {
+export const BodyMedium: Story = {
   args: {
-    
-    heading:"Column Heading",
-    subtext:"Column details",
-    size:"medium"
+    heading: 'Default Body Text',
+    size: 'medium',
   },
 };
 
-export const heading: Story = {
+export const HeadingLarge: Story = {
   args: {
-    
-    heading:"Title",
-    subtext:"Subtext",
-    size:"large"
+    heading: 'Large Heading',
+    size: 'large',
+  },
+};
+
+export const CustomText: Story = {
+  args: {
+    heading: 'This is some custom text',
   },
 };

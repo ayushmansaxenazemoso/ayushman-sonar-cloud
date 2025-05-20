@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TwoPanelTemplate from '../../template/Default';
 import LoginForm from '../../organisms/LoginForm';
-import Typography from '../../atoms/Typography'; 
+import PairTypography from '../../molecules/PairTypography'; 
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -30,7 +30,7 @@ const LoginPage: React.FC = () => {
 
   const leftContent = (
     <div className="left-panel-content">
-      <Typography
+      <PairTypography
         heading="Seeder"
         subtext="Your farming partner platform"
         size="large"
