@@ -13,31 +13,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Required for SonarCloud to get full git history
+          fetch-depth: 0
 
-      - name: Debug - Show current directory
-        run: pwd
-
-      - name: Debug - List all files
-        run: ls -la
-
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
+        working-directory: ./component-1
         run: npm install
 
       - name: Run tests with coverage
+        working-directory: ./component-1
         run: npm run test -- --coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:
-          projectBaseDir: .
+          projectBaseDir: ./component-1
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
