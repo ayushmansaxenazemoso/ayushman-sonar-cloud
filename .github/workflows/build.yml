@@ -35,7 +35,7 @@ jobs:
         with:
           projectBaseDir: ./component-1
           args: >
-            -Dsonar.projectKey=YOUR_PROJECT_KEY
-            -Dsonar.organization=YOUR_ORG_KEY
+            -Dsonar.projectKey=ayushmansaxenazemoso_ayushman-sonar-cloud-
+            -Dsonar.organization=ayushmansaxenazemoso
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
